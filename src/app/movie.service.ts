@@ -1,9 +1,23 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
+  apiUrl: string = "https://api.themoviedb.org/3/discover/movie";
+  apiKey: string = "695101759e1224bc97f92c3df2913774";
+  defaultLanguage: string = "en-US";
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  getData(displayYear: any, displayRating: any): any {
+    return this.http.get(this.apiUrl, {
+      params: {
+        language: this.defaultLanguage,
+        api_key: this.apiKey,
+        primary_release_year: displayYear,
+        vote_average: displayRating,
+      }
+    })
+  }
 }
