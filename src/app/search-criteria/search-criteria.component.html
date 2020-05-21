@@ -1,1 +1,4 @@
-<p>search-criteria works!</p>
+<h1>Recent Releases</h1>
+<!-- movie-list is child of SearchCriteria -->
+<!-- [movieRef] is defined in child ts (movie-list) -->
+<app-movie-list *ngFor="let movie of data?.results, index as i" [movieRef]="data"></app-movie-list>
