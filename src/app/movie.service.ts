@@ -6,9 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MovieService {
   apiUrl: string = "https://api.themoviedb.org/3/discover/movie";
+  genreUrl: string = "https://api.themoviedb.org/3/genre/movie/list";
   apiKey: string = "695101759e1224bc97f92c3df2913774";
   defaultLanguage: string = "en-US";
   constructor(private http: HttpClient) { }
+
 
   getData(displayYear: any, displayRating: any): any {
     return this.http.get(this.apiUrl, {
@@ -20,4 +22,14 @@ export class MovieService {
       }
     })
   }
+
+  getGenre(): any {
+    return this.http.get(this.genreUrl, {
+      params: {
+        api_key: this.apiKey,
+      }
+    })
+  }
+
+
 }
