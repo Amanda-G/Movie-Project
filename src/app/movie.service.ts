@@ -12,13 +12,15 @@ export class MovieService {
   constructor(private http: HttpClient) { }
 
 
-  getData(displayYear: any, displayRating: any): any {
+  getData(displayYear: any, displayRating: any, displayGenre): any {
+    console.log(displayYear, displayRating, displayGenre)
     return this.http.get(this.apiUrl, {
       params: {
         language: this.defaultLanguage,
         api_key: this.apiKey,
         primary_release_year: displayYear,
         vote_average: displayRating,
+        with_genres: displayGenre
       }
     })
   }

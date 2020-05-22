@@ -12,4 +12,9 @@ export class WatchListPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // added(index) {
+  //   this.favList.push(index);
+  //   console.log(this.favList);
+  // }
+
 }
