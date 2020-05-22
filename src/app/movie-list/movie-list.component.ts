@@ -13,6 +13,7 @@ export class MovieListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.movieRef)
   }
 
 }
