@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-criteria',
@@ -10,17 +12,18 @@ export class SearchCriteriaComponent implements OnInit {
   data: any;
   genre: any;
 
-  constructor(private service: MovieService) { }
+  constructor(private service: MovieService, private router: Router) { }
 
   ngOnInit(): void {
-    this.service.getData(2012, 6).subscribe(response => {
-      console.log(response);
-      this.data = response;
-    })
     this.service.getGenre().subscribe(response => {
-      console.log(response);
       this.genre = response;
-    })
+    });
+  }
+
+  onSubmit(form: NgForm) {
+    this.router.navigate(["search"], {
+      queryParams: { genre: form.value.genre, rating: form.value.rating, release: form.value.release }
+    });
   }
 
 
