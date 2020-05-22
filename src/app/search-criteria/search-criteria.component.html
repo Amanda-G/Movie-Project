@@ -1,3 +1,17 @@
+<form>
+    <label for="genre">Genre</label>
+    <select name="genre" id="genre">
+        <option value="genre" *ngFor="let genre of genre?.genres">{{genre.name}}</option>
+    </select>
+    <label for="rating">Movie Rating</label>
+    <select name="rating" id="rating">
+        <option value=""></option>
+    </select>
+    <label for="release">Release Date</label>
+    <input type="text" name="release" id="release" placeholder="Enter a release date">
+    <button>Find Movies</button>
+</form>
+
 <h1>Recent Releases</h1>
 <!-- movie-list is child of SearchCriteria -->
 <!-- [movieRef] is defined in child ts (movie-list) -->

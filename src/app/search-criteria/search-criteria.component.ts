@@ -8,6 +8,7 @@ import { MovieService } from '../movie.service';
 })
 export class SearchCriteriaComponent implements OnInit {
   data: any;
+  genre: any;
 
   constructor(private service: MovieService) { }
 
@@ -16,6 +17,11 @@ export class SearchCriteriaComponent implements OnInit {
       console.log(response);
       this.data = response;
     })
+    this.service.getGenre().subscribe(response => {
+      console.log(response);
+      this.genre = response;
+    })
   }
+
 
 }
