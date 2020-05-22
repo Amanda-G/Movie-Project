@@ -1,7 +1,8 @@
 <div>
-    <h2>{{ movieRef.results[0].title }}</h2>
-
-    <p>Rating</p>
+    <img *ngIf="movieRef" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movieRef.poster_path) }}"
+        alt="movie poster" />
+    <h2>{{ movieRef.title }}</h2>
+    <p>Rating: {{ movieRef.vote_average }}</p>
 </div>
 
 <!-- //create interface for "movie card"? -->
