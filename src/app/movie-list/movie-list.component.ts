@@ -11,8 +11,9 @@ import { MovieService } from '../movie.service';
 //@Input allows child to access data
 export class MovieListComponent implements OnInit {
   // @Input() movieRef: any;
-  // @Output() addFav = new EventEmitter<any>();
+  @Output() addFav = new EventEmitter<any>();
   movieList: any;
+  favList = [];
   constructor(private route: ActivatedRoute, private service: MovieService) { }
 
   ngOnInit(): void {
@@ -31,8 +32,16 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  addFavorite() {
-    // this.addFav.emit()
+  // addFavorite() {
+  //   // console.log("amanda")
+  // this.addFav.emit()
+  // }
+
+  added(index) {
+    console.log(index);
+    this.favList.push(index);
+    console.log(this.favList);
+    this.addFav.emit(this.favList);
   }
 
 }

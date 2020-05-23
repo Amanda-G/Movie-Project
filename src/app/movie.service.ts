@@ -9,6 +9,7 @@ export class MovieService {
   genreUrl: string = "https://api.themoviedb.org/3/genre/movie/list";
   apiKey: string = "695101759e1224bc97f92c3df2913774";
   defaultLanguage: string = "en-US";
+
   constructor(private http: HttpClient) { }
 
 
@@ -32,6 +33,4 @@ export class MovieService {
       }
     })
   }
-
-
 }
