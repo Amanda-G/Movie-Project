@@ -3,5 +3,5 @@
         alt="movie poster" />
     <h2>{{ movie.title }}</h2>
     <p>Rating: {{ movie.vote_average }}</p>
-    <button>Favorite</button>
+    <button (click)="added(movie)">Favorite</button>
 </div>

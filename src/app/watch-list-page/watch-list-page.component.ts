@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./watch-list-page.component.css']
 })
 export class WatchListPageComponent implements OnInit {
-
+  favList: any;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  // added(index) {
-  //   this.favList.push(index);
-  //   console.log(this.favList);
-  // }
+  addedList(favListFromChild) {
+    this.favList = favListFromChild;
+    console.log(this.favList);
+  }
 
 }
