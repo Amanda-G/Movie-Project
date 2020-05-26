@@ -1,9 +1,9 @@
-<form #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
-    <label for="genre">Genre</label>
+<form class="form" #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
+    <label class="label" for="genre">Genre</label>
     <select name="genre" id="genre" ngModel>
         <option *ngFor="let genre of genre?.genres" [value]="genre.id">{{genre.name}}</option>
     </select>
-    <label for="rating">Minimum Movie Rating</label>
+    <label class="label" for="rating">Minimum Movie Rating</label>
     <select name="rating" id="rating" ngModel>
         <option value="0">0 star</option>
         <option value="1">1 star</option>
@@ -17,12 +17,12 @@
         <option value="9">9 star</option>
         <option value="10">10 star</option>
     </select>
-    <label for="release">Release Date</label>
+    <label class="label" for="release">Release Date</label>
     <input type="text" name="release" id="release" placeholder="Enter a release date" ngModel>
     <button>Find Movies</button>
 </form>
 
-<h1>Recent Releases</h1>
+<!-- <h1>Recent Releases</h1> -->
 <!-- movie-list is child of SearchCriteria -->
 <!-- [movieRef] is defined in child ts (movie-list) -->
 <app-movie-list></app-movie-list>

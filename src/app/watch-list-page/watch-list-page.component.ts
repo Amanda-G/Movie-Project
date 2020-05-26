@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-watch-list-page',
@@ -7,14 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WatchListPageComponent implements OnInit {
   favList: any;
-  constructor() { }
+  show: boolean = false;
+
+  constructor(private service: MovieService) { }
 
   ngOnInit(): void {
+    this.getList();
   }
 
-  addedList(favListFromChild) {
-    this.favList = favListFromChild;
-    console.log(this.favList);
+  getList() {
+    this.favList = this.service.getFavorites();
+  }
+
+  onDelete(index: number): void {
+    this.favList.splice(index, 1)
+  }
+
+  toggleDetails(): void {
+    this.show = !this.show;
   }
 
 }

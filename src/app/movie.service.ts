@@ -10,7 +10,20 @@ export class MovieService {
   apiKey: string = "695101759e1224bc97f92c3df2913774";
   defaultLanguage: string = "en-US";
 
+  favoriteMovies: any = [];
+
   constructor(private http: HttpClient) { }
+
+  // setter
+  addFavorite(movie: any): void {
+    this.favoriteMovies.push(movie);
+    console.log(this.favoriteMovies)
+  }
+
+  // getter
+  getFavorites() {
+    return this.favoriteMovies;
+  }
 
 
   getData(displayYear: any, displayRating: any, displayGenre): any {
