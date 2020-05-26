@@ -1,9 +1,12 @@
-<div *ngFor="let movie of movieList?.results, index as i">
-    <img *ngIf="movie" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}" alt="movie poster"
-        (click)="showDetails(i)" />
+<div class="movie-card" *ngFor="let movie of movieList?.results, index as i">
+    <div class="card-content">
+        <img *ngIf="movie" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}"
+            alt="{{movie.title}}" (click)="showDetails(i)" />
 
-    <p>Rating: {{ movie.vote_average }}</p>
-    <button (click)="added(movie)">Favorite</button>
+        <p>Rating: {{ movie.vote_average }}</p>
+        <button (click)="added(movie)" class="fav-btn"><i class="fas fa-heart"
+                [ngClass]="{marked: movie.isFavorite}"></i></button>
+    </div>
 
     <div class="detail" *ngIf="showIndex === i">
         <img *ngIf="movie" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}"
