@@ -1,1 +1,16 @@
-<app-movie-list (addFav)="addedList($event)"></app-movie-list>
+<div *ngFor="let movie of favList, index as i">
+    <img *ngIf="movie" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}" alt="movie poster"
+        (click)="toggleDetails()" />
+    <h2>{{ movie.title }}</h2>
+    <p>Rating: {{ movie.vote_average }}</p>
+    <button (click)=onDelete(i)>Remove</button>
+
+    <div class="detail" *ngIf="show">
+        <img *ngIf="movie" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}"
+            alt="movie poster" />
+        <h2>{{ movie.title }}</h2>
+        <p>Rating: {{ movie.vote_average }}</p>
+        <p>Overview: {{movie.overview}}</p>
+    </div>
+
+</div>

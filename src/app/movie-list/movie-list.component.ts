@@ -37,11 +37,8 @@ export class MovieListComponent implements OnInit {
   // this.addFav.emit()
   // }
 
-  added(index) {
-    console.log(index);
-    this.favList.push(index);
-    console.log(this.favList);
-    this.addFav.emit(this.favList);
+  added(movie: any) {
+    this.service.addFavorite(movie);
   }
 
 }
