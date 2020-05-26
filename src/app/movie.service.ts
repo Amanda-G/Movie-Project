@@ -9,6 +9,7 @@ export class MovieService {
   genreUrl: string = "https://api.themoviedb.org/3/genre/movie/list";
   apiKey: string = "695101759e1224bc97f92c3df2913774";
   defaultLanguage: string = "en-US";
+  popularUrl: string = "https://api.themoviedb.org/3/movie/popular";
 
   favoriteMovies: any = [];
 
@@ -43,6 +44,14 @@ export class MovieService {
     return this.http.get(this.genreUrl, {
       params: {
         api_key: this.apiKey,
+      }
+    })
+  }
+
+  getPopularMovies(): any {
+    return this.http.get(this.popularUrl, {
+      params: {
+        api_key: this.apiKey
       }
     })
   }
