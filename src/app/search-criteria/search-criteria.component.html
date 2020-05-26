@@ -1,28 +1,36 @@
 <form class="form" #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
-    <label class="label" for="genre">Genre</label>
-    <select name="genre" id="genre" ngModel>
-        <option *ngFor="let genre of genre?.genres" [value]="genre.id">{{genre.name}}</option>
-    </select>
-    <label class="label" for="rating">Minimum Movie Rating</label>
-    <select name="rating" id="rating" ngModel>
-        <option value="0">0 star</option>
-        <option value="1">1 star</option>
-        <option value="2">2 star</option>
-        <option value="3">3 star</option>
-        <option value="4">4 star</option>
-        <option value="5">5 star</option>
-        <option value="6">6 star</option>
-        <option value="7">7 star</option>
-        <option value="8">8 star</option>
-        <option value="9">9 star</option>
-        <option value="10">10 star</option>
-    </select>
-    <label class="label" for="release">Release Date</label>
-    <input type="text" name="release" id="release" placeholder="Enter a release date" ngModel>
-    <button>Find Movies</button>
+    <div class="form-elements">
+        <label class="label" for="genre">Genre</label>
+        <select class="select" name="genre" id="genre" ngModel>
+            <option value="" selected>Select Genre</option>
+            <option *ngFor="let genre of genre?.genres" [value]="genre.id">{{genre.name}}</option>
+        </select>
+    </div>
+    <div class="form-elements">
+        <label class="label" for="rating">Minimum Movie Rating</label>
+        <select class="select" name="rating" id="rating" ngModel>
+            <option value="" selected>Select Rating</option>
+            <option value="0">0 star</option>
+            <option value="1">1 star</option>
+            <option value="2">2 star</option>
+            <option value="3">3 star</option>
+            <option value="4">4 star</option>
+            <option value="5">5 star</option>
+            <option value="6">6 star</option>
+            <option value="7">7 star</option>
+            <option value="8">8 star</option>
+            <option value="9">9 star</option>
+            <option value="10">10 star</option>
+        </select>
+    </div>
+    <div class="form-elements">
+        <label class="label" for="release">Release Date</label>
+        <input class="input" type="text" name="release" id="release" placeholder="Enter a release date" ngModel>
+    </div>
+    <button class="find-btn">Find Movies</button>
 </form>
 
 <!-- <h1>Recent Releases</h1> -->
 <!-- movie-list is child of SearchCriteria -->
 <!-- [movieRef] is defined in child ts (movie-list) -->
-<app-movie-list [movieList]="data"></app-movie-list>
+<app-movie-list class="movie-card" [movieList]="data"></app-movie-list>
