@@ -22,7 +22,14 @@ export class MovieListComponent implements OnInit {
 
 
   added(movie: any) {
-    this.service.addFavorite(movie);
+    if (movie.isFavorite) {
+      movie.isFavorite = false;
+      this.service.removeFavorite(movie);
+    } else {
+      movie.isFavorite = true;
+      this.service.addFavorite(movie);
+    }
+
   }
 
   showDetails(index: number): void {

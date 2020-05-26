@@ -1,0 +1,27 @@
+.movie-card {
+    margin: 0 20px; 
+}
+
+.card-content{
+    position: relative;
+}
+
+.fav-btn {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    border: 1px solid white;
+}
+
+.fa-heart {
+    font-size: 25px;
+    color: #087e8b;
+}
+
+.marked {
+color: #c81d25;
+}

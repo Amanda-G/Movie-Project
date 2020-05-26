@@ -26,6 +26,10 @@ export class MovieService {
     return this.favoriteMovies;
   }
 
+  removeFavorite(movie: any): void {
+    this.favoriteMovies.splice(movie, 1);
+  }
+
 
   getData(displayYear: any, displayRating: any, displayGenre): any {
     console.log(displayYear, displayRating, displayGenre)
