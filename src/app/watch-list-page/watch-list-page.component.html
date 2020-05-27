@@ -1,19 +1,27 @@
 <div class="movie-cards">
     <div *ngFor="let movie of favList, index as i" class="movie-card">
         <div class="card-content">
-            <img *ngIf="movie" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}"
-                alt="movie poster" (click)="toggleDetails()" />
+            <img class="movie-pic" *ngIf="movie"
+                src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}" alt="movie poster"
+                (click)="showDetails(i)" />
             <!-- <h2>{{ movie.title }}</h2> -->
-            <p>Rating: {{ movie.vote_average }}</p>
+            <p><i class="fas fa-star"></i> Rating: {{ movie.vote_average }}</p>
             <button (click)=onDelete(i) class="delete-btn"><i class="fas fa-trash-alt"></i></button>
         </div>
-        <div class="detail" *ngIf="show">
-            <img *ngIf="movie" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}"
-                alt="movie poster" />
-            <h2>{{ movie.title }}</h2>
-            <p>Rating: {{ movie.vote_average }}</p>
-            <p>Overview: {{movie.overview}}</p>
+        <div class="pop-up" *ngIf="showIndex === i">
+            <div class="details">
+                <div class="detail-head">
+                    <img class="picture" *ngIf="movie"
+                        src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}"
+                        alt="movie poster" />
+                    <div class="title-rating">
+                        <h2>{{ movie.title }}</h2>
+                        <p class="detail-content"><i class="fas fa-star"></i> Rating: {{ movie.vote_average }}</p>
+                    </div>
+                </div>
+                <p class="detail-content">Overview: {{movie.overview}}</p>
+                <button (click)="hideDetails()" class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>

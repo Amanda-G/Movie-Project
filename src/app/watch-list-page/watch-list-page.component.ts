@@ -8,7 +8,7 @@ import { MovieService } from '../movie.service';
 })
 export class WatchListPageComponent implements OnInit {
   favList: any;
-  show: boolean = false;
+  showIndex: number = null;
 
   constructor(private service: MovieService) { }
 
@@ -24,8 +24,12 @@ export class WatchListPageComponent implements OnInit {
     this.favList.splice(index, 1)
   }
 
-  toggleDetails(): void {
-    this.show = !this.show;
+  showDetails(index: number): void {
+    this.showIndex = index;
+  }
+
+  hideDetails() {
+    this.showIndex = null;
   }
 
 }
