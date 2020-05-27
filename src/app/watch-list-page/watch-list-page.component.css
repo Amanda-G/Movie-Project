@@ -1,8 +1,14 @@
+.gradient {
+    height: 175px;
+    background: linear-gradient(to bottom, #0B3954, #087E8B, #fff);
+}
+
 .movie-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 40px;
+    position: absolute;
+    top: 150px;
 }
 
 .card-content{
