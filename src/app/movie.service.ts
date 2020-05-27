@@ -38,7 +38,7 @@ export class MovieService {
         language: this.defaultLanguage,
         api_key: this.apiKey,
         primary_release_year: displayYear,
-        vote_average: displayRating,
+        "vote_average.gte": displayRating,
         with_genres: displayGenre
       }
     })
