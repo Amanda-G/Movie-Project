@@ -6,6 +6,7 @@
     align-items: center;
     background-color: #0B3954;
     padding: 10px 30px;
+    border-bottom: 2px solid #FF5A5F;
 }
 
 ul {
