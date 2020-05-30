@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SearchCriteriaComponent implements OnInit {
   data: any;
   genre: any;
+  favList: any = [];
 
   constructor(private service: MovieService, private router: Router, private route: ActivatedRoute) { }
 
@@ -22,14 +23,13 @@ export class SearchCriteriaComponent implements OnInit {
     this.route.queryParams.subscribe(response => {
       if (response.release || response.rating || response.genre) {
         this.service.getData(response.release, response.rating, response.genre).subscribe(movieResponse => {
-          this.data = movieResponse;
+          this.data = movieResponse.results;
         });
       } else {
         this.service.getPopularMovies().subscribe(response => {
-          this.data = response;
+          this.data = response.results;
         })
       }
-
     });
   }
 
@@ -37,6 +37,10 @@ export class SearchCriteriaComponent implements OnInit {
     this.router.navigate(["search"], {
       queryParams: { genre: form.value.genre, rating: form.value.rating, release: form.value.release }
     });
+  }
+
+  getFavList() {
+    this.favList = this.service.getFavorites();
   }
 
 
