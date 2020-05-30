@@ -12,6 +12,7 @@ export class MovieService {
   popularUrl: string = "https://api.themoviedb.org/3/movie/popular";
 
   favoriteMovies: any = [];
+  index: number;
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +28,7 @@ export class MovieService {
   }
 
   removeFavorite(movie: any): void {
-    this.favoriteMovies.splice(movie, 1);
+    this.favoriteMovies.splice(this.findMovieIndex(movie), 1);
   }
 
 
@@ -59,4 +60,11 @@ export class MovieService {
       }
     })
   }
+
+  findMovieIndex(movie: any) {
+    return this.favoriteMovies.findIndex(element => {
+      return movie.id === element.id
+    })
+  }
+
 }

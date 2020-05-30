@@ -1,4 +1,4 @@
-<div class="movie-card" *ngFor="let movie of movieList?.results, index as i">
+<div class="movie-card" *ngFor="let movie of movieList, index as i">
     <div class="card-content">
         <img class="movie-pic" *ngIf="movie"
             src="https://image.tmdb.org/t/p/w220_and_h330_face{{ (movie.poster_path) }}" alt="{{movie.title}}"

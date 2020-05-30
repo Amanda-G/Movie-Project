@@ -12,9 +12,13 @@ import { MovieService } from '../movie.service';
 export class MovieListComponent implements OnInit {
   @Input() movieList: any;
   showIndex: number = null;
+  favList: any = [];
   constructor(private route: ActivatedRoute, private service: MovieService) { }
 
   ngOnInit(): void {
+
+    this.favList = this.service.getFavorites();
+    this.addProperty();
 
 
   }
@@ -22,7 +26,7 @@ export class MovieListComponent implements OnInit {
 
 
   added(movie: any) {
-    if (movie.isFavorite) {
+    if (this.checkDuplicate(movie)) {
       movie.isFavorite = false;
       this.service.removeFavorite(movie);
     } else {
@@ -39,5 +43,20 @@ export class MovieListComponent implements OnInit {
   hideDetails() {
     this.showIndex = null;
   }
+
+  checkDuplicate(movie: any): boolean {
+    return this.favList.some((item) => {
+      return item.id === movie.id;
+    })
+  }
+
+  addProperty(): void {
+    this.movieList.forEach(movie => {
+      if (this.checkDuplicate(movie)) {
+        movie.isFavorite = true
+      }
+    })
+  }
+
 
 }
